@@ -2,19 +2,26 @@ var test = require('tape')
 var range = require('../')
 
 
-function ordered(t, opts, exact) {
+function reverse(t, opts) {
   var _opts = JSON.parse(JSON.stringify(opts))
+  var opts = range(opts)
+  if(opts.reverse) {
+    t.ok(opts.start   == _opts.end)
+    t.ok(opts.end     == _opts.start)
+  }
+  else {
+    t.ok(opts.start   == _opts.start)
+    t.ok(opts.end     == _opts.end)
+  }
+  t.ok(opts.reverse == _opts.reverse)
+
+}
+
+function ordered(t, opts, reverse) {
   var opts = range(opts)
   //don't change order if there is only start OR end,
   //but not both.
-  if(exact) {
-    t.ok(opts.start   == _opts.start)
-    t.ok(opts.end     == _opts.end)
-    t.ok(opts.reverse == _opts.reverse)
-    return
-  }
 
-  console.log(opts)
   console.log([!!opts.reverse,'===', opts.start, '>', opts.end].join(' '))
   t.ok(!!opts.reverse === opts.start > opts.end, 
     [opts.start, opts.reverse ? '>' : '<', opts.end].join(' ')
@@ -37,10 +44,11 @@ test('set correct order', function (t) {
 //so don't fix them.
 
 test("don't change order", function (t) {
-  ordered({start: 'v',           reverse: true}, true)
-  ordered({            end: 'v', reverse: true}, true)
-  ordered({            end: 'v'               }, true)
-  ordered({start: 'v'                         }, true)
+  reverse = reverse.bind(null, t)
+  reverse({start: 'v',           reverse: true})
+  reverse({            end: 'v', reverse: true})
+  reverse({            end: 'v'               })
+  reverse({start: 'v'                         })
   t.end()
 })
 
