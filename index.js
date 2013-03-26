@@ -5,15 +5,16 @@ function fixRange(opts) {
   var end     = opts.end
   var start   = opts.start
 
+  if(start == null || end == null) {
+    return opts
+  }
+
   var range = [start, end].sort()
-  if(start != null && end != null && reverse)
+  if(reverse)
     range = range.reverse()
 
-  start = range.shift()
-  end   = range.shift()
-
-  opts.start   = start
-  opts.end     = end
+  opts.start   = range[0]
+  opts.end     = range[1]
   return opts
 }
 
