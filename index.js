@@ -5,11 +5,9 @@ function fixRange(opts) {
   var end     = opts.end
   var start   = opts.start
 
-  if(start == null || end == null) {
-    return opts
-  }
-
-  var range = [start, end].sort()
+  var range = [start, end]
+  if(start != null && end != null)
+    range.sort()
   if(reverse)
     range = range.reverse()
 
