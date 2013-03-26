@@ -20,7 +20,10 @@ db.createReadStream({start: 'a', end: 'z'})
 db.createReadStream(fix({start: 'a', end: 'z', reverse: true}))
 ```
 
-when you pass one option this will work too:
+when you pass one option, it won't change anything,
+since `{start: X, end: null}` and `{start: null, end: 'X'}`
+are both valid. (meaning from `X` to the end of the db,
+from the start of the db to `X`, respectively.)
 
 ``` js
 //get 'm' or after
