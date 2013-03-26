@@ -2,6 +2,12 @@
 
 make reverse ranges easier to use.
 
+## Stability
+
+Stable: Expect patches, possible features additions.
+
+## Example
+
 When you use reverse ranges, you have to reverse the `start` and `end` also,
 
 ``` js
@@ -20,21 +26,16 @@ db.createReadStream({start: 'a', end: 'z'})
 db.createReadStream(fix({start: 'a', end: 'z', reverse: true}))
 ```
 
-when you pass one option, it won't change anything,
-since `{start: X, end: null}` and `{start: null, end: 'X'}`
-are both valid. (meaning from `X` to the end of the db,
-from the start of the db to `X`, respectively.)
+When you either `start` _OR_ `end`, and the order is `reversed: true`,
+it will also reverse the range,
+so that:
 
 ``` js
-//get 'm' or after
-db.createReadStream({start: 'm'})
-//get 'm' or before
-db.createReadStream({end: 'm', reverse: true})
+{start: X, end: null} //from X to end of database
+{start: null, end: X} //from start of database to X
 ```
-
-## Stability
-
-Stable: Expect patches, possible features additions.
+and you will get the some data, whether you have reverse=true|false,
+but only the order will change.
 
 ## License
 
