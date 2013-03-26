@@ -29,6 +29,10 @@ db.createReadStream({start: 'm'})
 db.createReadStream({end: 'm', reverse: true})
 ```
 
+## Stability
+
+Stable: Expect patches, possible features additions.
+
 ## License
 
 MIT
