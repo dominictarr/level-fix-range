@@ -1,19 +1,19 @@
 {
   "name": "level-fix-range",
-  "description": "",
+  "description": "make using levelup reverse ranges easy",
   "version": "0.0.0",
   "homepage": "https://github.com/dominictarr/level-fix-range",
   "repository": {
     "type": "git",
     "url": "git://github.com/dominictarr/level-fix-range.git"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
+    "tape": "~0.3.2"
   },
   "scripts": {
     "test": "set -e; for t in test/*.js; do node $t; done"
   },
   "author": "Dominic Tarr <dominic.tarr@gmail.com> (http://dominictarr.com)",
-  "license": "MIT"  
+  "license": "MIT"
 }
