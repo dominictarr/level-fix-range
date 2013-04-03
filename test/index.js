@@ -52,3 +52,22 @@ test("don't change order", function (t) {
   t.end()
 })
 
+
+test('alais min and max to start and end', function (t) {
+
+  function alias(fixable, fixed) {
+    range(fixable)
+    t.equal(fixable.start,   fixed.start,   'start')
+    t.equal(fixable.end,     fixed.end,     'end')
+    t.equal(fixable.reverse, fixed.reverse, 'reverse')
+  }
+
+  alias({min: 'a', max: 'z'}, {start: 'a', end: 'z'})
+  alias({min: 'a', max: 'z', reverse: true}, {start: 'z', end: 'a', reverse: true})
+  alias({max: 'z'}, {end: 'z'})
+  alias({max: 'z', reverse: true}, {start: 'z', reverse: true})
+  alias({min: 'a'}, {start: 'a'})
+  alias({min: 'a', reverse: true}, {end: 'a', reverse: true})
+
+  t.end()
+})
