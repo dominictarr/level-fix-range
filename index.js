@@ -2,8 +2,8 @@
 module.exports = 
 function fixRange(opts) {
   var reverse = opts.reverse
-  var end     = opts.end
-  var start   = opts.start
+  var end     = opts.max || opts.end
+  var start   = opts.min || opts.start
 
   var range = [start, end]
   if(start != null && end != null)
