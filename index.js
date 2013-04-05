@@ -13,6 +13,10 @@ function fixRange(opts) {
 
   opts.start   = range[0]
   opts.end     = range[1]
+
+  delete opts.min
+  delete opts.max
+
   return opts
 }
 
