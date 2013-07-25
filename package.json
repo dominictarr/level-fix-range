@@ -7,7 +7,9 @@
     "type": "git",
     "url": "git://github.com/dominictarr/level-fix-range.git"
   },
-  "dependencies": {},
+  "dependencies": {
+    "clone": "~0.1.9"
+  },
   "devDependencies": {
     "tape": "~1.0.4"
   },
