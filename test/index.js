@@ -71,3 +71,11 @@ test('alias min and max to start and end', function (t) {
 
   t.end()
 })
+
+
+test('no side effects', function (t) {
+  var fixable = {min: 'a', max: 'b', reverse: true}
+  range(fixable)
+  t.deepEqual(fixable, {min: 'a', max: 'b', reverse: true})
+  t.end()
+})
