@@ -53,7 +53,7 @@ test("don't change order", function (t) {
 })
 
 
-test('alais min and max to start and end', function (t) {
+test('alias min and max to start and end', function (t) {
 
   function alias(fixable, fixed) {
     fixable = range(fixable)
