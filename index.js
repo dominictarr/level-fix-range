@@ -1,6 +1,9 @@
+var clone = require('clone')
 
 module.exports = 
 function fixRange(opts) {
+  opts = clone(opts)
+
   var reverse = opts.reverse
   var end     = opts.max || opts.end
   var start   = opts.min || opts.start
@@ -19,4 +22,3 @@ function fixRange(opts) {
 
   return opts
 }
-
