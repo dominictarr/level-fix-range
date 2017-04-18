@@ -2,6 +2,8 @@
 
 make reverse ranges easier to use.
 
+this module is deprecated in favor of [ltgt](https://github.com/dominictarr/ltgt)
+
 ## Stability
 
 Stable: Expect patches, possible features additions.
