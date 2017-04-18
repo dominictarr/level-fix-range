@@ -26,16 +26,16 @@ db.createReadStream({start: 'a', end: 'z'})
 db.createReadStream(fix({start: 'a', end: 'z', reverse: true}))
 ```
 
-When you either `start` _OR_ `end`, and the order is `reversed: true`,
-it will also reverse the range,
-so that:
+When you either `start` _OR_ `end`, and you specify `reverse: true`,
+it will also reverse the range, so that:
 
 ``` js
 {start: X, end: null} //from X to end of database
 {start: null, end: X} //from start of database to X
 ```
-and you will get the some data, whether you have reverse=true|false,
-but only the order will change.
+
+and you will get the same data, whether you have `reverse: true` or
+`reverse: false`, and only the order will change.
 
 ## License
 
